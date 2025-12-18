@@ -9,6 +9,6 @@ Cette repository contient le rassemblement des Travaux Pratiques (TP) réalisés
 - TP3
 - TP4_GESTION_TACHES
 - TP6_BLOG
-- TP 7 VOTE (BRANCHE) et voici le lien: https://ensa-safi-votes.web.app/login
+- TP 7 VOTE (BRANCHE) (FIREBASE) et voici le lien: https://ensa-safi-votes.web.app/login
 - TP 8 FORUM (FIREBASE), le lien est dans la section about et le voici: https://forum-vue-app.web.app/
  
