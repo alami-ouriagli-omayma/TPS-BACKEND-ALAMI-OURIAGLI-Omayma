@@ -1,6 +1,6 @@
 # TPS-BACKEND-ALAMI-OURIAGLI-Omayma
 
-Cette repository contient le rassemblement des Travaux Pratiques (TP) réalisés durant la formation, à l'exception du TP de Job Application, qui est disponible dans le GitHub de mon binôme **Achtouk Fatine**.
+Cette repository contient le rassemblement des Travaux Pratiques (TP) réalisés durant la formation, à l'exception du TP 5 de Job Application, qui est disponible dans le GitHub de mon binôme **Achtouk Fatine**.
 
 ## Contenu
 
