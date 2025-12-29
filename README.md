@@ -10,5 +10,5 @@ Cette repository contient le rassemblement des Travaux Pratiques (TP) réalisés
 - TP4_GESTION_TACHES
 - TP6_BLOG
 - TP7: VOTE: https://ensa-safi-vote.web.app/
--TP 8: FORUM: https://forum-vue-app.web.app/
+- TP 8: FORUM: https://forum-vue-app.web.app/
 
