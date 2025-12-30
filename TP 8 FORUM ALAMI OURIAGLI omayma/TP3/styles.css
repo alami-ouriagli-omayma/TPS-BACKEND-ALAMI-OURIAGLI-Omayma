@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+body {
+  max-width: 1200px;
+  margin: auto;
+  padding: 16px;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #f5f5f5;
+}
+header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 16px;
+  padding: 8px;
+  background-color: #7451eb;
+  text-align: center;
+  color: rgb(255, 255, 255);
+  border-radius: 8px;
+}
+header img {
+  height: 60px;
+  margin-left: 1rem;
+}
+header h1 {
+  flex-grow: 1;
+}
+main {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+.filtres {
+  border-radius: 8px;
+  box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+  margin: 8px;
+  padding: 16px;
+  width: 280px;
+  background-color: white;
+  height: fit-content;
+  flex-shrink: 0;
+}
+.filtres h3 {
+  text-align: center;
+  color: #7451eb;
+  margin-bottom: 20px;
+}
+.filtres input[type="text"],
+.filtres select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+.filtres label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+.filtres input[type="checkbox"] {
+  margin-right: 8px;
+  cursor: pointer;
+}
+.fiches {
+  flex: 1;
+  margin: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: flex-start;
+}
+.carte {
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+  width: 220px;
+  text-align: center;
+  background-color: white;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.carte:hover {
+  transform: translateY(-4px);
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.15);
+}
+.carte img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+.carte h3 {
+  font-size: 16px;
+  margin: 8px 0;
+  color: #333;
+  min-height: 40px;
+}
+.carte p {
+  margin: 6px 0;
+  font-size: 14px;
+}
+button {
+  background-color: #7451eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  width: 100%;
+  margin-top: 10px;
+  transition: background-color 0.2s;
+}
+button:hover:not(:disabled) {
+  background-color: #5a3fc4;
+}
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+footer {
+  background-color: #7451eb;
+  color: white;
+  padding: 16px;
+  text-align: center;
+  margin-top: 20px;
+  border-radius: 8px;
+}
+footer h3 {
+  margin: 0;
+}
