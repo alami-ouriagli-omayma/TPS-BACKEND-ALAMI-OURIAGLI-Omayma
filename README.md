@@ -11,4 +11,5 @@ Cette repository contient le rassemblement des Travaux Pratiques (TP) réalisés
 - TP6_BLOG
 - TP7: VOTE: https://ensa-safi-vote.web.app/
 - TP 8: FORUM: https://forum-vue-app.web.app/
+- Final project link: taskflow: https://taskflow-app-a1ccd.web.app/
 
