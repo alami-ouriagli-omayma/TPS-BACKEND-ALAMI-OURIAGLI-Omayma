@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <title>Les Bonnes Pièces</title>
+    <link rel="stylesheet" href="styles.css">
+	<link rel="icon" type="image/png" href="images/logoo.png">
+    <!-- Import Vue.js -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <header>
+        <img src="images/logoo.png" alt="LOGO">
+        <h1>Les Bonnes Pièces</h1>
+      </header>
+      
+      <main>
+        <!-- MENU DE FILTRES -->
+        <section class="filtres">
+          <h3>Filtres</h3>
+          
+          <!-- Barre de recherche -->
+          <input type="text" v-model="recherche" placeholder="Rechercher une pièce...">
+          
+          <!-- Filtre par catégorie -->
+          <select v-model="categorieSelectionnee">
+            <option value="">Toutes les catégories</option>
+            <option v-for="cat in categories" :key="cat" :value="cat">{{ cat }}</option>
+          </select>
+          
+          <!-- Filtre disponibilité -->
+          <label>
+            <input type="checkbox" v-model="dispoSeulement">
+            Seulement les pièces disponibles
+          </label>
+          
+          <!-- Tri par prix -->
+          <select v-model="triPrix">
+            <option value="">-- Trier par prix --</option>
+            <option value="asc">Prix croissant</option>
+            <option value="desc">Prix décroissant</option>
+          </select>
+        </section>
+        
+        <!-- AFFICHAGE DES PIÈCES -->
+        <section class="fiches">
+          <div v-for="piece in piecesFiltrees" :key="piece.id" class="carte">
+            <img :src="piece.image" :alt="piece.nom">
+            <h3>{{ piece.nom }}</h3>
+            <p><strong>Prix :</strong> {{ piece.prix }} €</p>
+            <p><strong>Catégorie :</strong> {{ piece.categorie }}</p>
+            <p v-if="piece.disponible" style="color:green;"> Disponible</p>
+            <p v-else style="color:red;"> Rupture de stock</p>
+            <button @click="ajouterAuPanier(piece)" :disabled="!piece.disponible">
+              Ajouter au panier
+            </button>
+          </div>
+        </section>
+      </main>
+      
+      <footer>
+        <h3> Panier : {{ panier.length }} article(s)</h3>
+      </footer>
+    </div>
+    
+    <!-- lien avec js -->
+    <script src="pieces.js"></script>
+  </body>
+</html>

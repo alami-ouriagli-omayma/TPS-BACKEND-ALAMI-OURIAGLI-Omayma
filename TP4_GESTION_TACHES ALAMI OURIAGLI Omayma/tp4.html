@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TaskList</title>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background: #f2f4f8;
+      display: flex;
+      justify-content: center;
+      padding: 30px;
+    }
+
+    .card {
+      background: white;
+      width: 600px;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    h3 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    /* FILTER BUTTONS */
+    .filters {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .filter-btn {
+      padding: 8px 18px;
+      border: none;
+      background: #ddd;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 500;
+    }
+
+    .filter-btn.active {
+      background: #000;
+      color: #fff;
+    }
+
+    /* TASK ITEM */
+    .task {
+      background: #fafafa;
+      border-left: 6px solid #1795ff;
+      margin-bottom: 15px;
+      padding: 12px;
+      border-radius: 6px;
+      list-style: none;
+    }
+
+    .task.completed {
+      border-left-color: #42b883;
+      opacity: 0.7;
+    }
+
+    .task-title {
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .task-title.completed {
+      text-decoration: line-through;
+      color: gray;
+    }
+
+    .task button {
+      margin-top: 8px;
+      background: #42b883;
+      border: none;
+      color: white;
+      padding: 6px 15px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .task button:hover {
+      background: #36946f;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="app" class="card">
+    <h1>Gestion des tâches</h1>
+
+    <h3>Total des tâches : {{ totalTasks }}</h3>
+
+    <!-- FILTER BUTTONS -->
+    <div class="filters">
+      <button class="filter-btn"
+        :class="{ active: filter === 'all'}"
+        @click="filter = 'all'">
+        Toutes
+      </button>
+
+      <button class="filter-btn"
+        :class="{ active: filter === 'todo'}"
+        @click="filter = 'todo'">
+        À faire
+      </button>
+
+      <button class="filter-btn"
+        :class="{ active: filter === 'done'}"
+        @click="filter = 'done'">
+        Terminées
+      </button>
+    </div>
+
+    <!-- TASKS -->
+    <ul>
+      <li v-for="task in filteredTasks" :key="task.id"
+        class="task"
+        :class="{ completed: task.completed }">
+
+        <div class="task-title"
+          :class="{ completed: task.completed }">
+          {{ task.title }}
+        </div>
+
+        <p>{{ task.description }}</p>
+
+        <button v-show="!task.completed"
+          @click="markAsCompleted(task)">
+           Marquer comme terminé
+        </button>
+
+      </li>
+    </ul>
+  </div>
+
+  <script>
+    const { createApp } = Vue;
+
+    createApp({
+      data() {
+        return {
+          tasks: [],
+          filter: "all",
+        };
+      },
+
+      computed: {
+        totalTasks() {
+          return this.tasks.length;
+        },
+
+        filteredTasks() {
+          if (this.filter === "all") return this.tasks;
+          if (this.filter === "todo") return this.tasks.filter(t => !t.completed);
+          if (this.filter === "done") return this.tasks.filter(t => t.completed);
+        }
+      },
+
+      methods: {
+        loadTasks() {
+          fetch("./tasks.json")
+            .then(res => res.json())
+            .then(data => {
+              this.tasks = data;
+            });
+        },
+
+        markAsCompleted(task) {
+          task.completed = true;
+        }
+      },
+
+      mounted() {
+        this.loadTasks();
+      }
+    }).mount("#app");
+  </script>
+
+</body>
+
+</html>
